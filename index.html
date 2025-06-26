@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Фото Хранилище</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <div id="registerForm">
+        <h3>Регистрация</h3>
+        <input type="text" id="regEmail" placeholder="Email">
+        <input type="text" id="username" placeholder="Имя пользователя">
+        <button onclick="register()">Зарегистрироваться</button>
+        <p>Уже есть аккаунт? <a href="#" onclick="document.getElementById('registerForm').style.display='none';document.getElementById('loginForm').style.display='block';">Войти</a></p>
+      </div>
+      <div id="loginForm" style="display:none;">
+        <h3>Вход</h3>
+        <input type="text" id="loginEmail" placeholder="Email">
+        <input type="text" id="loginCode" placeholder="Код из почты">
+        <button onclick="sendCode()">Получить код</button>
+        <button onclick="login()">Войти</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <select id="addSelect">
+      <option value="">➕ Добавить</option>
+      <option value="photo">Фото</option>
+      <option value="album">Альбом</option>
+    </select>
+    <button onclick="loadPhotos()">Галерея</button>
+    <button onclick="showAlbums()">Альбомы</button>
+    <button onclick="faceRecognition()">Распознавание лиц</button>
+  </div>
+
+  <div id="main">
+    <div id="gallery"></div>
+  </div>
+
+  <div id="viewerModal" class="modal" style="display:none;">
+    <div class="viewer-content">
+      <img id="viewerImage" src="">
+      <div id="viewerInfo"></div>
+      <div class="viewer-actions">
+        <button onclick="deletePhoto()">🗑️ Удалить</button>
+        <button onclick="faceRecognition()">🧠 Распознать лица</button>
+        <button onclick="document.getElementById('viewerModal').style.display='none';">❌ Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
